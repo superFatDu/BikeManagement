@@ -310,8 +310,7 @@ module.exports = function(webpackEnv) {
             {
               options: {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
-                eslintPath: require.resolve('eslint'),
-                
+                eslintPath: require.resolve('eslint')
               },
               loader: require.resolve('eslint-loader'),
             },
@@ -355,7 +354,7 @@ module.exports = function(webpackEnv) {
                         },
                       },
                     },
-                  ],
+                  ]
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -380,6 +379,16 @@ module.exports = function(webpackEnv) {
                     require.resolve('babel-preset-react-app/dependencies'),
                     { helpers: true },
                   ],
+                ],
+                plugins: [
+                  [
+                    "import",
+                    {
+                      libraryName: "antd",
+                      libraryDirectory: "es",
+                      style: true
+                    }
+                  ]
                 ],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
