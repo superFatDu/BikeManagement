@@ -7,8 +7,8 @@ class Admin extends Component {
   render() {
     return (
       <Row>
-        <Col span={3}>right</Col>
-        <Col span={21}>
+        <Col span="3">right</Col>
+        <Col span="21">
           <Header></Header>
           <Row></Row>
           <Footer></Footer>
