@@ -1,11 +1,11 @@
-// import React, { Component } from "react";
+import React, { Component } from "react";
 
-// class Header extends Component {
-//   render() {
-//     return (
-//       <div>This is Header</div>
-//     );
-//   }
-// }
+class Header extends Component {
+  render() {
+    return (
+      <div>This is Header</div>
+    );
+  }
+}
 
-// export default Header;
+export default Header;
