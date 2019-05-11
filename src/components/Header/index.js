@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "antd";
 import { formatDate } from "../../utils";
+import jsonp from "../../jsonp";
 import "./index.less";
 
 class Header extends Component {
@@ -8,9 +9,11 @@ class Header extends Component {
     super(props);
     this.state = {
       userName: "",
-      sysTime: ""
+      sysTime: "",
+      weather: ""
     }
     this.getTime();
+    this.getWeather();
   }
   render() {
     return (
@@ -27,7 +30,7 @@ class Header extends Component {
           </Col>
           <Col span={20} className="weather">
             <span className="date">{this.state.sysTime}</span>
-            <span className="weather-detail">晴</span>
+              <span className="weather-detail">{this.state.weather.dayweather}-{this.state.weather.nightweather}&nbsp;&nbsp;{this.state.weather.nighttemp}°C-{this.state.weather.daytemp}°C</span>
           </Col>
         </Row>
       </div>
@@ -45,6 +48,16 @@ class Header extends Component {
         sysTime
       })
     }, 1000);
+  }
+  getWeather() {
+    let city = "110101";
+    jsonp.jsonp({
+      url: "https://restapi.amap.com/v3/weather/weatherInfo?city="+city+"&extensions=all&output=json&key=7a67d1df418b6083b9df74de43f8752a"
+    }).then(res => {
+      this.setState({
+        weather: res
+      })
+    })
   }
 }
 
