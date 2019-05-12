@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import "./index.less";
 
 class Footer extends Component {
   render() {
     return (
-      <div>This is Footer</div>
+      <div className="footer">
+        made with love by Robin Du
+      </div>
     );
   }
 }
